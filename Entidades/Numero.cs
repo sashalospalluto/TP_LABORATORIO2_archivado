@@ -10,21 +10,35 @@ namespace Entidades
     {
         private double numero;
 
+        /// <summary>
+        /// Constructor que inicializa en 0 el atributo
+        /// </summary>
         public Numero()
         {
             this.numero=0;
         }
 
-        public Numero(double numero) : this()
+        /// <summary>
+        /// Recibe por parametro un valor de tipo double
+        /// </summary>
+        /// <param name="numero">Numero recibido por parametro</param>
+        public Numero(double numero)
         {
-
+            this.numero = numero;
         }
 
+        /// <summary>
+        /// Recibe por parametro un valor de tipo string
+        /// </summary>
+        /// <param name="strNumero"></param>
         public Numero(string strNumero)
         {
             this.SetNumero = strNumero;
         }
 
+        /// <summary>
+        /// Le asigna al atributo el valor ya validado
+        /// </summary>
         public string SetNumero 
         {
             set
@@ -33,6 +47,11 @@ namespace Entidades
             }
         }
 
+        /// <summary>
+        /// Convierte el valor recibido a decimal
+        /// </summary>
+        /// <param name="binario"> se recibe un valor del tipo string </param>
+        /// <returns> Devuelve 'valor invalido' si el numero recibido no es binario, caso contrario devuelve el valor convertido a decimal</returns>
         public string BinarioDecimal (string binario)
         {
             string aux;
@@ -70,6 +89,11 @@ namespace Entidades
             return esUnNumeroBinario;
         }
 
+        /// <summary>
+        /// Convierte el valor recibido a binario
+        /// </summary>
+        /// <param name="numero"> se recibe un valor del tipo double</param>
+        /// <returns>Devuelve 'valor invalido' si el numero recibido no es decima, caso contrario devuelve el valor convertido a binario</returns>
         public string DecimalBinario (double numero)
         {
 
@@ -97,6 +121,11 @@ namespace Entidades
             return binario;
         }
 
+        /// <summary>
+        /// Convierte el valor recibido a binario
+        /// </summary>
+        /// <param name="numero"> se recibe un valor del tipo string</param>
+        /// <returns>Devuelve 'valor invalido' si el numero recibido no es decimal, caso contrario devuelve el valor convertido a binario</returns>
         public string DecimalBinario(string numero)
         {
             double binario;
@@ -106,21 +135,45 @@ namespace Entidades
             return DecimalBinario(binario);
         }
 
+        /// <summary>
+        /// operador de clase que resta 2 numeros del tipo Numero
+        /// </summary>
+        /// <param name="n1">valor recibido del tipo Numero</param>
+        /// <param name="n2">valor del tipo Numero</param>
+        /// <returns>Devuelve la resta de ambos numeros</returns>
         public static double operator - (Numero n1, Numero n2)
         {
             return (n1.numero-n2.numero);
         }
 
+        /// <summary>
+        /// operador de clase que suma 2 numeros del tipo Numero
+        /// </summary>
+        /// <param name="n1">valor recibido del tipo Numero</param>
+        /// <param name="n2">valor recibido del tipo Numero</param>
+        /// <returns>Devuelve la suma de ambos numeros</returns>
         public static double operator + (Numero n1, Numero n2)
         {
             return (n1.numero+n2.numero);
         }
 
+        /// <summary>
+        /// operador de clase que multiplica 2 numeros del tipo Numero
+        /// </summary>
+        /// <param name="n1">valor recibido del tipo Numero</param>
+        /// <param name="n2">valor recibido del tipo Numero</param>
+        /// <returns>Devuelve la multiplicacion de ambos numeros</returns>
         public static double operator * (Numero n1, Numero n2)
         {
             return (n1.numero*n2.numero);
         }
 
+        /// <summary>
+        /// operador de clase que divide 2 numeros del tipo Numero
+        /// </summary>
+        /// <param name="n1">valor recibido del tipo Numero</param>
+        /// <param name="n2">valor recibido del tipo Numero</param>
+        /// <returns>Devuelve la division de ambos numeros. En caso de que el dividendo sea cero se devuelve el valor minimo (double.MinValue)</returns>
         public static double operator / (Numero n1, Numero n2)
         {
             double ret = 0;
@@ -137,6 +190,11 @@ namespace Entidades
             return ret;
         }
 
+        /// <summary>
+        /// Valida que el numero recibido del tipo string sea un numero
+        /// </summary>
+        /// <param name="strNumero">valor recibido del tipo string</param>
+        /// <returns>Devuelve 0 si el valor no es un numero, caso contrario devuelve el numero convertido al tipo doubel</returns>
         private double ValidarNumero (string strNumero)
         {
             double esUnNumero = 0;
